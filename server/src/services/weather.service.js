@@ -8,11 +8,14 @@ const getWeatherForCity = async (city) => {
   const response = await axios.get(url);
 
   return {
-    city: response.data.name,
-    temperature: response.data.main.temp,
-    description: response.data.weather[0].description,
-    humidity: response.data.main.humidity
-  };
+  city: response.data.name,
+  temperature: response.data.main.temp,
+  description: response.data.weather[0].description,
+  humidity: response.data.main.humidity,
+  lat: response.data.coord.lat,
+  lon: response.data.coord.lon
+ };
+
 };
 
 module.exports = { getWeatherForCity };
